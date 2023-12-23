@@ -1,4 +1,4 @@
-import {token,webAppUrl} from './config.js';
+import {token,webAppUrl,ChatGPTAppUrl} from './config.js';
 import { Telegraf, Markup} from 'telegraf';
 
 const bot = new Telegraf(token)
@@ -8,8 +8,11 @@ bot.command('start',(ctx)=>{
         'Hi, Press button to starting aplication',
         Markup.keyboard([
             Markup.button.webApp(
-                'Send the message',webAppUrl
-            )
+                'Start app',webAppUrl
+            ),
+            Markup.button.webApp(
+                'Open ChatGPT',ChatGPTAppUrl
+            ) 
         ])
     )
 })
